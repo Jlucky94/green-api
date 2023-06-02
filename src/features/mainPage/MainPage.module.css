@@ -1,0 +1,52 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "sidebar content"
+
+}
+
+.header {
+    grid-area: header;
+    background-color: gray;
+}
+
+.sidebar {
+    display: grid;
+    grid-template-rows: 50px 50px 1fr;
+    grid-area: sidebar;
+    background-color: yellow;
+}
+
+.sidebarHeader {
+    background-color: lawngreen;
+
+}
+
+.searchBar {
+    background-color: lightblue;
+
+}
+
+.contacts {
+    background-color: lightgreen;
+
+}
+
+.content {
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    grid-area: content;
+    background-color: green;
+}
+
+.chatHeader {
+    background-color: lightsalmon;
+
+}
+.chat {
+    background-color: aqua;
+}
+.inputMsg {
+    background-color: lightpink;
+}
