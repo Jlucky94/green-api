@@ -5,7 +5,7 @@ import {Controller, useForm} from "react-hook-form";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useAppDispatch, useAppSelector} from "app/store";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {loginActions, LoginDataType} from "features/login/loginSlice";
 import {loginSchema} from "common/utils/yupResolvers/yupResolvers";
 
@@ -13,6 +13,7 @@ import {loginSchema} from "common/utils/yupResolvers/yupResolvers";
 const Login = () => {
     const isLoading = useAppSelector(state => state.app.status)
     const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const {
         control,
@@ -22,6 +23,7 @@ const Login = () => {
 
     const onSubmit = handleSubmit((data) => {
         dispatch(loginActions.loggedIn(data))
+        navigate('/mainPage')
     })
 
 

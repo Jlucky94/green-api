@@ -2,7 +2,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-    "sidebar content"
+    "sidebar content";
+    height: 100vh;
 
 }
 
@@ -35,7 +36,7 @@
 
 .content {
     display: grid;
-    grid-template-rows: 50px 1fr 50px;
+    grid-template-rows: 50px 1fr 110px;
     grid-area: content;
     background-color: green;
 }
@@ -48,5 +49,7 @@
     background-color: aqua;
 }
 .inputMsg {
+    display: flex;
+    justify-content:space-between ;
     background-color: lightpink;
 }
