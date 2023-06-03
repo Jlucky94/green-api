@@ -1,8 +1,8 @@
-import React, {KeyboardEvent, useState} from 'react';
+import React, {KeyboardEvent, useEffect, useState} from 'react';
 import classes from "features/mainPage/MainPage.module.css";
 import {useAppDispatch, useAppSelector} from "app/store";
 import {Button, TextField} from "@mui/material";
-import {mainPageActions, sendMessageTC} from "features/mainPage/mainPageSlice";
+import {mainPageActions, receiveNotificationTC, sendMessageTC} from "features/mainPage/mainPageSlice";
 
 const Chat = () => {
     const dispatch = useAppDispatch()
@@ -17,6 +17,13 @@ const Chat = () => {
         setMessage('')
     }
     const onKeyDownSendMessage = (e: KeyboardEvent<HTMLDivElement>) => (e.key === 'Enter') && onClickAddMessage
+
+    useEffect(() => {
+        const refresh = setInterval(() => {
+            dispatch(receiveNotificationTC())
+        }, 1000)
+        return () => clearInterval(refresh)
+    }, [])
 
     return (
         <>
@@ -41,6 +48,7 @@ const Chat = () => {
                     minRows={3}
                 />
                 <Button onClick={onClickAddMessage} variant={'outlined'}>Send</Button>
+                <Button onClick={() => dispatch(receiveNotificationTC())}>Receive NOTIFICATION</Button>
             </div>
         </>
     );

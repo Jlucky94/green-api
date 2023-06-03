@@ -7,5 +7,5 @@ export const loginSchema = yup.object().shape({
 })
 export const addNewChat = yup.object().shape({
     contactName:yup.string().required(),
-    phoneNumber:yup.number().required()
+    phoneNumber:yup.string().required()
 })

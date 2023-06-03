@@ -9,9 +9,9 @@ const Contacts = () => {
 
     const dispatch = useAppDispatch()
 
-    const [selectedContact, setSelectedContact] = useState(0)
+    const [selectedContact, setSelectedContact] = useState('')
 
-    const contactOnClick = (phoneNumber: number) => () => {
+    const contactOnClick = (phoneNumber: string) => () => {
         dispatch(mainPageActions.chatSelected({phoneNumber}))
         setSelectedContact(phoneNumber)
     }
