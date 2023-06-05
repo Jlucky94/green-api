@@ -1,8 +1,9 @@
 import React, {KeyboardEvent, useEffect, useState} from 'react';
-import classes from "features/mainPage/MainPage.module.css";
+import classes from "features/mainPage/chat/Chat.module.css";
 import {useAppDispatch, useAppSelector} from "app/store";
 import {Button, TextField} from "@mui/material";
-import {mainPageActions, receiveNotificationTC, sendMessageTC} from "features/mainPage/mainPageSlice";
+import {receiveNotificationTC, sendMessageTC} from "features/mainPage/mainPageSlice";
+import ChatPlug from "features/mainPage/chatPlug/ChatPlug";
 
 const Chat = () => {
     const dispatch = useAppDispatch()
@@ -21,18 +22,25 @@ const Chat = () => {
     useEffect(() => {
         const refresh = setInterval(() => {
             dispatch(receiveNotificationTC())
-        }, 1000)
+        }, 5000)
         return () => clearInterval(refresh)
     }, [])
 
+
+    if (!currentChat) {
+        return <ChatPlug/>
+    }
     return (
-        <>
+        <div className={classes.content}>
             <div className={classes.chatHeader}>
                 {currentChat ? `${contactsInfo[currentChat].contactName} (${currentChat})` : 'Select a chat'}
             </div>
             <div className={classes.chat}>
                 {currentChat && contactsInfo[currentChat].messages
-                    .map(message => <div>{message.content}</div>)}
+                    .map(message =>
+                        <div className={classes.message} style={{alignSelf: message.byMe ? 'end' : 'start'}}>
+                            {message.content}
+                        </div>)}
 
             </div>
             <div className={classes.inputMsg}>
@@ -40,17 +48,16 @@ const Chat = () => {
                     value={message}
                     onChange={(e) => setMessage(e.currentTarget.value)}
                     onKeyDown={onKeyDownSendMessage}
-                    style={{width: 750}}
+                    style={{width: 750, alignSelf: 'center'}}
                     label="Message"
-                    id="fullWidth"
                     multiline={true}
                     maxRows={3}
                     minRows={3}
                 />
-                <Button onClick={onClickAddMessage} variant={'outlined'}>Send</Button>
-                <Button onClick={() => dispatch(receiveNotificationTC())}>Receive NOTIFICATION</Button>
+                <Button style={{width: 150, height: 100, alignSelf: 'center'}} onClick={onClickAddMessage}
+                        variant={'outlined'} color={'inherit'}>Send</Button>
             </div>
-        </>
+        </div>
     );
 };
 

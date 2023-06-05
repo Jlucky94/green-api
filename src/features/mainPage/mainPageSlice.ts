@@ -17,10 +17,11 @@ export type ContactType = {
 }
 export const initialState = {
     currentChat: '',
-    contactsList: ['905360209464','79147568425'] as string[],
+    contactsList: ['905360209464', '79147568425', '79147577260'] as string[],
     contactsInfo: {
         ['905360209464']: {contactName: 'Me', phoneNumber: '905360209464', messages: []},
-        ['79147568425']: {contactName: 'Lilia', phoneNumber: '79147568425', messages: []}
+        ['79147568425']: {contactName: 'Lilia', phoneNumber: '79147568425', messages: []},
+        ['79147577260']: {contactName: 'Papa', phoneNumber: '79147577260', messages: []}
     } as ContactsType
 }
 export type InitialStateType = typeof initialState
@@ -46,8 +47,8 @@ export const authSlice = createSlice({
                 time: '29.10.1994'
             })
         },
-        messageReceived: ((state: InitialStateType, action: PayloadAction<{ notification: ReceiveNotificationResponseType }>) => {
-            if(action.payload.notification.body.typeWebhook === 'incomingMessageReceived') {
+        messageReceived: (state: InitialStateType, action: PayloadAction<{ notification: ReceiveNotificationResponseType }>) => {
+            if (action.payload.notification.body.typeWebhook === 'incomingMessageReceived') {
                 const senderPhoneNumber = action.payload.notification.body.senderData.sender.split('@')[0]
                 if (action.payload.notification.body.messageData.typeMessage === 'textMessage'
                     && state.currentChat === senderPhoneNumber) {
@@ -58,7 +59,7 @@ export const authSlice = createSlice({
                     })
                 }
             }
-        })
+        }
     },
     extraReducers: (builder) => {
         // builder
@@ -106,7 +107,7 @@ export const receiveNotificationTC = createAsyncThunk<ReceiveNotificationRespons
             const apiTokenInstance = thunkAPI.getState().login.apiTokenInstance
             const response = await chatAPI.receiveNotification(idInstance, apiTokenInstance)
             thunkAPI.dispatch(mainPageActions.messageReceived({notification: response}))
-            // thunkAPI.dispatch(deleteNotificationTC({receiptId: response.receiptId}))
+            thunkAPI.dispatch(deleteNotificationTC({receiptId: response.receiptId}))
             return response
         } catch (e: any) {
             return thunkAPI.rejectWithValue(e.response.data.error)

@@ -1,23 +1,21 @@
 import React from 'react';
 import {MainPage} from "features/mainPage/MainPage";
-import {Navigate, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import Login from "features/login/Login";
-import {useAppSelector} from "app/store";
+import {Paper} from "@mui/material";
 
 const App = () => {
 
-    const isAuth = useAppSelector(state => state.login.isAuth)
-// TODO пофиксить - Navigate не рендерит страницу
-    if (false) {
-        return <Navigate to={'/login'}/>
-    }
 
     return (
-        <div>
-            <Routes>
-                <Route path={"/login"} element={<Login/>}/>
-                <Route path={"/mainPage"} element={<MainPage/>}/>
-            </Routes>
+        <div style={{display: 'flex', background: '#eae6df', alignItems: 'center', justifyContent: 'center'}}>
+            <Paper elevation={5}
+                   style={{width: '70%', height: 'calc(100vh - 100px)', marginTop: 50, marginBottom: 50}}>
+                <Routes>
+                    <Route path={"/login"} element={<Login/>}/>
+                    <Route path={"/mainPage"} element={<MainPage/>}/>
+                </Routes>
+            </Paper>
         </div>
     )
 

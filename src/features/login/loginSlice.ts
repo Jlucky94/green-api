@@ -4,8 +4,8 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 export const initialState = {
     isAuth: false,
     error: null as null | string,
-    idInstance: '1101827245',
-    apiTokenInstance: 'f8ec64d966f542d79836c086547d16af263c4c681f87423fa8'
+    idInstance: '1101827729',
+    apiTokenInstance: '7f3a987661cf4222824b5ce9a9fccb54d2641945e38742d28b'
 }
 
 export type InitialStateType = typeof initialState

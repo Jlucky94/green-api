@@ -21,7 +21,9 @@ const Contacts = () => {
         <>
             {contactsList.map(phoneNumber =>
                 <div onClick={contactOnClick(phoneNumber)}
-                     className={phoneNumber === selectedContact ? classes.selected : ''}>
+                     className={phoneNumber === selectedContact ? classes.selected : ''}
+                     style={{borderBottom: 'groove 2px', padding: 2, cursor: 'pointer', margin: 2}}
+                >
                     {contactsInfo[phoneNumber].contactName}
                 </div>
             )}

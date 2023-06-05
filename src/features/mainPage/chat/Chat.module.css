@@ -1,0 +1,34 @@
+.content {
+    display: grid;
+    grid-template-rows: 50px 1fr 110px;
+    border-left: 1px solid gray;
+}
+
+.chatHeader {
+    background-color: #eae6df;
+    border-bottom: 1px solid gray;
+
+}
+
+.chat {
+    background-color: #eae6df;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputMsg {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid gray;
+    background-color: #eae6df;
+}
+
+.message {
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: -7px -4px 4px rgba(0, 0, 0, 0.1);
+    background-color: #c5e6c1;
+}
