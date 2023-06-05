@@ -10,7 +10,6 @@
 
 ### Live demo of the project:
 
-https://jlucky94.github.io/hacker-news/
+https://jlucky94.github.io/green-api/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
