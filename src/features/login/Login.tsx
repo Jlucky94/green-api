@@ -27,52 +27,50 @@ const Login = () => {
 
 
     return (
-        <div>
-            <Container className={classes.formContainer} style={{display: 'flex', flexDirection: 'column'}}>
-                <Paper elevation={3} className={classes.paperContainer} sx={{padding: '40px 33px'}}>
-                    <form onSubmit={onSubmit}>
-                        <h2>Sign In</h2>
-                        <FormGroup sx={{display: 'flex', rowGap: '24px', marginBottom: '20px'}}>
-                            <Controller
-                                control={control}
-                                name={'idInstance'}
-                                render={({field}) => (
-                                    <TextField
-                                        error={!!errors.idInstance}
-                                        helperText={errors.idInstance?.message}
-                                        variant={'outlined'}
-                                        label={'idInstance'}
-                                        value={field.value}
-                                        onChange={(e) => field.onChange(e)}
-                                    />)
-                                }/>
-                            <Controller
-                                control={control}
-                                name={'apiTokenInstance'}
-                                render={({field}) => (
-                                    <TextField
-                                        error={!!errors.apiTokenInstance}
-                                        helperText={errors.apiTokenInstance?.message}
-                                        variant={'outlined'}
-                                        label={'apiTokenInstance'}
-                                        value={field.value}
-                                        onChange={(e) => field.onChange(e)}
-                                    />
-                                )
-                                }/>
-                            <Button type="submit" variant={'contained'} disabled={isLoading === 'loading'}>
-                                Sign In
-                            </Button>
-                            <div>
-                                Don't have an account?
-                            </div>
-                            <Link to="https://console.green-api.com/auth/register">
-                                Sign Up
-                            </Link>
-                        </FormGroup>
-                    </form>
-                </Paper>
-            </Container>
+        <div style={{display: "flex", justifyContent: 'center', alignItems: 'center', height: '100%'}}>
+            <Paper elevation={3} className={classes.paperContainer} sx={{padding: '40px 33px'}}>
+                <form onSubmit={onSubmit}>
+                    <h2>Sign In</h2>
+                    <FormGroup sx={{display: 'flex', rowGap: '24px', marginBottom: '20px'}}>
+                        <Controller
+                            control={control}
+                            name={'idInstance'}
+                            render={({field}) => (
+                                <TextField
+                                    error={!!errors.idInstance}
+                                    helperText={errors.idInstance?.message}
+                                    variant={'outlined'}
+                                    label={'idInstance'}
+                                    value={field.value}
+                                    onChange={(e) => field.onChange(e)}
+                                />)
+                            }/>
+                        <Controller
+                            control={control}
+                            name={'apiTokenInstance'}
+                            render={({field}) => (
+                                <TextField
+                                    error={!!errors.apiTokenInstance}
+                                    helperText={errors.apiTokenInstance?.message}
+                                    variant={'outlined'}
+                                    label={'apiTokenInstance'}
+                                    value={field.value}
+                                    onChange={(e) => field.onChange(e)}
+                                />
+                            )
+                            }/>
+                        <Button type="submit" variant={'contained'} disabled={isLoading === 'loading'}>
+                            Sign In
+                        </Button>
+                        <div>
+                            Don't have an account?
+                        </div>
+                        <Link to="https://console.green-api.com/auth/register">
+                            Sign Up
+                        </Link>
+                    </FormGroup>
+                </form>
+            </Paper>
         </div>
     );
 };

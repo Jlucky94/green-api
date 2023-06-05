@@ -9,7 +9,7 @@ export const MainPage = () => {
     const isAuth = useAppSelector(state => state.login.isAuth)
 
     if (!isAuth) {
-        return <Navigate to={'/login'}/>
+        return <Navigate to={'/'}/>
     }
 
     return (

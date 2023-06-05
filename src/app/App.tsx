@@ -8,11 +8,20 @@ const App = () => {
 
 
     return (
-        <div style={{display: 'flex', background: '#eae6df', alignItems: 'center', justifyContent: 'center'}}>
+        <div style={{
+            background: '#eae6df', display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
             <Paper elevation={5}
-                   style={{width: '70%', height: 'calc(100vh - 100px)', marginTop: 50, marginBottom: 50}}>
+                   style={{
+                       width: '70%',
+                       height: 'calc(100vh - 100px)',
+                       marginTop: 50,
+                       marginBottom: 50
+                   }}>
                 <Routes>
-                    <Route path={"/login"} element={<Login/>}/>
+                    <Route path={"/"} element={<Login/>}/>
                     <Route path={"/mainPage"} element={<MainPage/>}/>
                 </Routes>
             </Paper>
