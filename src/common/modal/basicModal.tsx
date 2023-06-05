@@ -1,4 +1,4 @@
-import React, {FC, ReactNode, useState} from 'react';
+import React, {FC, ReactNode} from 'react';
 import {Box, Button, IconButton, Modal, Typography} from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -26,7 +26,7 @@ type Props = {
     handleClose: () => void
     handleOpen: () => void
 }
-export const BasicModal: FC<Props> = ({label, children, title, type,isOpen,handleOpen,handleClose}) => {
+export const BasicModal: FC<Props> = ({label, children, title, type, isOpen, handleOpen, handleClose}) => {
 
 
     return (

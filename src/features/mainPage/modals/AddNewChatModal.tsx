@@ -1,13 +1,12 @@
 import React, {useState} from 'react';
 import {BasicModal} from "common/modal/basicModal";
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import {Button, FormControl, FormGroup, TextField} from "@mui/material";
+import {Button, FormGroup, TextField} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {addNewChat} from "common/utils/yupResolvers/yupResolvers";
 import {useAppDispatch} from "app/store";
 import {ContactType, mainPageActions} from "features/mainPage/mainPageSlice";
-
 
 
 const AddNewChatModal = () => {

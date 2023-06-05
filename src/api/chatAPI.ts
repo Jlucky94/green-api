@@ -1,5 +1,4 @@
 import axios, {AxiosResponse} from "axios";
-import {useAppSelector} from "app/store";
 
 export const baseURL = 'https://api.green-api.com/'
 

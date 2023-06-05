@@ -5,7 +5,6 @@ import {loginReducer} from "features/login/loginSlice";
 import {mainPageReducer} from "features/mainPage/mainPageSlice";
 
 
-
 export const store = configureStore({
     reducer: {
         app: appReducer,

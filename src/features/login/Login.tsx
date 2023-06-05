@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import classes from './login.module.css'
 import {Button, Container, FormGroup, Paper, TextField} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {useAppDispatch, useAppSelector} from "app/store";
 import {Link, useNavigate} from "react-router-dom";
@@ -30,7 +29,7 @@ const Login = () => {
     return (
         <div>
             <Container className={classes.formContainer} style={{display: 'flex', flexDirection: 'column'}}>
-                <Paper className={classes.paperContainer} sx={{padding: '40px 33px'}}>
+                <Paper elevation={3} className={classes.paperContainer} sx={{padding: '40px 33px'}}>
                     <form onSubmit={onSubmit}>
                         <h2>Sign In</h2>
                         <FormGroup sx={{display: 'flex', rowGap: '24px', marginBottom: '20px'}}>
@@ -51,15 +50,15 @@ const Login = () => {
                                 control={control}
                                 name={'apiTokenInstance'}
                                 render={({field}) => (
-                                        <TextField
-                                            error={!!errors.apiTokenInstance}
-                                            helperText={errors.apiTokenInstance?.message}
-                                            variant={'outlined'}
-                                            label={'apiTokenInstance'}
-                                            value={field.value}
-                                            onChange={(e) => field.onChange(e)}
-                                        />
-                                        )
+                                    <TextField
+                                        error={!!errors.apiTokenInstance}
+                                        helperText={errors.apiTokenInstance?.message}
+                                        variant={'outlined'}
+                                        label={'apiTokenInstance'}
+                                        value={field.value}
+                                        onChange={(e) => field.onChange(e)}
+                                    />
+                                )
                                 }/>
                             <Button type="submit" variant={'contained'} disabled={isLoading === 'loading'}>
                                 Sign In
