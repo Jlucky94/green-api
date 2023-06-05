@@ -29,26 +29,6 @@ export const loginSlice = createSlice({
             state.apiTokenInstance = ''
             state.isAuth = false
         }
-    },
-    extraReducers: (builder) => {
-        // builder
-        //     .addCase(loginTC.pending, (state) => {
-        //         state.isLoading = true
-        //         state.error = null
-        //     })
-        //     .addCase(loginTC.fulfilled, (state) => {
-        //         state.isLoading = false
-        //         state.error = null
-        //     })
-        //     .addCase(loginTC.rejected, (state, action) => {
-        //         state.isLoading = false
-        //         state.error = action.payload as string
-        //     })
-        //     .addCase(getAuthUserDataTC.fulfilled, state => {
-        //         state.isAuth = true
-        //     })
-
-
     }
 })
 

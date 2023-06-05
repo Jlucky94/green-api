@@ -1,8 +1,8 @@
 import {AnyAction, configureStore, ThunkDispatch} from "@reduxjs/toolkit";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
-import {appReducer} from "app/appSlice";
-import {loginReducer} from "features/login/loginSlice";
-import {mainPageReducer} from "features/mainPage/mainPageSlice";
+import {appReducer} from "redux/appSlice";
+import {loginReducer} from "redux/loginSlice";
+import {mainPageReducer} from "redux/mainPageSlice";
 
 
 export const store = configureStore({

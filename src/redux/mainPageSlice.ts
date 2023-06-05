@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {chatAPI, ReceiveNotificationResponseType, SendMsgResponseType} from "api/chatAPI";
-import {AsyncConfigType} from "app/appSlice";
+import {AsyncConfigType} from "redux/appSlice";
 
 export type ContactsType = {
     [phoneNumber: string]: ContactType
@@ -60,26 +60,6 @@ export const authSlice = createSlice({
                 }
             }
         }
-    },
-    extraReducers: (builder) => {
-        // builder
-        //     .addCase(loginTC.pending, (state) => {
-        //         state.isLoading = true
-        //         state.error = null
-        //     })
-        //     .addCase(loginTC.fulfilled, (state) => {
-        //         state.isLoading = false
-        //         state.error = null
-        //     })
-        //     .addCase(loginTC.rejected, (state, action) => {
-        //         state.isLoading = false
-        //         state.error = action.payload as string
-        //     })
-        //     .addCase(getAuthUserDataTC.fulfilled, state => {
-        //         state.isAuth = true
-        //     })
-
-
     }
 })
 

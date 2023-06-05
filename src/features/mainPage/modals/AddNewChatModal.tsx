@@ -5,8 +5,8 @@ import {Button, FormGroup, TextField} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {addNewChat} from "common/utils/yupResolvers/yupResolvers";
-import {useAppDispatch} from "app/store";
-import {ContactType, mainPageActions} from "features/mainPage/mainPageSlice";
+import {useAppDispatch} from "redux/store";
+import {ContactType, mainPageActions} from "redux/mainPageSlice";
 
 
 const AddNewChatModal = () => {

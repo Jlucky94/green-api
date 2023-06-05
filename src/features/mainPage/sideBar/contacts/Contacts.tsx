@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {useAppDispatch, useAppSelector} from "app/store";
-import {mainPageActions} from "features/mainPage/mainPageSlice";
+import {useAppDispatch, useAppSelector} from "redux/store";
+import {mainPageActions} from "redux/mainPageSlice";
 import classes from './Contacts.module.css'
 
 const Contacts = () => {

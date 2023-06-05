@@ -1,8 +1,8 @@
 import React, {KeyboardEvent, useEffect, useState} from 'react';
 import classes from "features/mainPage/chat/Chat.module.css";
-import {useAppDispatch, useAppSelector} from "app/store";
+import {useAppDispatch, useAppSelector} from "redux/store";
 import {Button, TextField} from "@mui/material";
-import {receiveNotificationTC, sendMessageTC} from "features/mainPage/mainPageSlice";
+import {receiveNotificationTC, sendMessageTC} from "redux/mainPageSlice";
 import ChatPlug from "features/mainPage/chatPlug/ChatPlug";
 
 const Chat = () => {

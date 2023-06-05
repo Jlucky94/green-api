@@ -3,9 +3,9 @@ import classes from './login.module.css'
 import {Button, Container, FormGroup, Paper, TextField} from "@mui/material";
 import {Controller, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
-import {useAppDispatch, useAppSelector} from "app/store";
+import {useAppDispatch, useAppSelector} from "redux/store";
 import {Link, useNavigate} from "react-router-dom";
-import {loginActions, LoginDataType} from "features/login/loginSlice";
+import {loginActions, LoginDataType} from "redux/loginSlice";
 import {loginSchema} from "common/utils/yupResolvers/yupResolvers";
 
 
